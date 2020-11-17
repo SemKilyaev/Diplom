@@ -21,10 +21,3 @@ class Todo(models.Model):
 
 	def __str__(self):
 		return self.text
-
-class ClientTodo(models.Model):
-	todo = models.ForeignKey(Todo, null=True, on_delete= models.SET_NULL)
-	client = models.ForeignKey(Client, null=True, on_delete= models.SET_NULL)
-
-	def __str__(self):
-		return self.client.name
