@@ -1,0 +1,65 @@
+{% extends 'todo/main.html' %}
+
+{% block content %}
+
+<div class="container-fluid" id="wrapper">
+			
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-4" id="content">
+			<h2>WHAT DO YOU WANT TO DO ?</h2>
+			
+			<form action="{% url 'add' %}" method="POST" role="form">
+				{% csrf_token %}
+				<div class="form-group">
+					<div class="input-group">
+						 {{ form.text }}
+					  <span class="input-group-btn">
+						  <button type="submit" class="btn btn-danger" id="add-btn">ADD</button>
+					  </span>
+					</div>
+				</div>
+			</form>
+			<div class="row t10">
+				<div class="col-lg-12">
+					<div class="btn-toolbar">
+						<div class="btn-group">
+							<a href="{% url 'deletecomplete' %}"><button type="button" class="btn btn-danger">
+								<i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
+							</button></a>
+						</div>
+						<div class="btn-group">
+							<a href="{% url 'deleteall' %}"><button type="button" class="btn btn-danger">
+								<i class="glyphicon glyphicon-trash"></i> DELETE ALL
+							</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<ul class="list-group t20">
+				{% for todo in todo_list %}
+					{% if todo.complete %}
+					<li class="list-group-item todo-completed">{{ todo.text }}</li>
+					{% else %}
+					<a href="{% url 'complete' todo.id %}"><li class="list-group-item">{{ todo.text }}</li></a>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<footer>
+		<div class="row pad">
+			<div class="col-lg-12 text-center">
+				&copy; 2020 <strong>ToDo List</strong>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<!-- jQuery -->
+<script src="./bs/js/jquery.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="./bs/js/bootstrap.min.js"></script>
+
+{% endblock %}
