@@ -1,0 +1,53 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: rgba(44, 62, 80, .8);
+	font-family: 'Oswald', 'Futura', sans-serif;
+}
+#wrapper {
+	margin-top: 10% !important;
+}
+#content {
+	background: beige;
+	padding: 25px;
+}
+#content > h2 {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 0;
+}
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+.todo-completed {
+	text-decoration: line-through;
+	background: rgba(149, 165, 166, .3);
+}
+.todo-check {
+	background: rgb(228, 10, 10);
+}
+footer {
+	margin-top: 20px;
+	color: white;
+}
+.glyphicon {
+	color:white;
+}
+#hello-msg{
+	font-size: 18px;
+	color: #fff;
+	margin-right: 20px;
+}
+.date-created {
+	color: rgb(108, 192, 231)
+}
+.list-group-item {
+	color: teal;
+}
+.date-completion {
+	color: rgb(182, 179, 179);
+}
