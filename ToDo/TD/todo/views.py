@@ -51,7 +51,7 @@ def completeTodo(request, todo_id):
 
 @allowed_users(allowed_roles=['admin', 'client'])
 def dateComplete(request):
-
+    
     todo = Todo.objects.filter(client_id=Client.objects.get(name=request.user))
     for i in todo:
         if datetime.date.today() >= i.make_up:
@@ -125,8 +125,17 @@ def logoutUser(request):
     return redirect('login')
 
 
-@allowed_users(allowed_roles=['admin'])
+@allowed_users(allowed_roles=['admin','client'])
 def client(request):
-    return render(request, 'todo/client.html')
+
+    client = Client.objects.get(name=request.user)
+    clients = Client.objects.all()
+    todos = Todo.objects.all()
+
+    total_clients = clients.count()
+    total_todos = todos.filter(client_id=Client.objects.get(name=request.user)).count() 
+
+    context = {'total_clients': total_clients, 'client': client, 'total_todos': total_todos}
+    return render(request, 'todo/client.html', context)
 
 

@@ -17,8 +17,8 @@ class Locators:
     CHECK_LOGIN = f".//span[text()='Hello, {Data.NAME}']"
     INPUT_TASK = ".//input[@name='text']"
     BUTTON_ADD = ".//button[text()='ADD']"
-    LINK_TASK = f".//li[text()='{Data.TASK1}']"
-    LINK_TASK_DELETE = f".//li[text()='{Data.TASK_FOR_DELETE}']"
+    LINK_TASK = f".//a//p[text()='Date completed - {Data.DATETIME_FIND} ']"
+    LINK_TASK_DELETE = f".//a//p[text()='Date completed - {Data.DATETIME_FIND_2} ']"
     BUTTON_DELETE_COMPLETED = ".//a[@href='/deletecompleted']/button[@type='button']"
     BUTTON_DELETE_ALL = ".//a[@href='/deleteall']/button[@type='button']"
     LINK_WEATHER = ".//a[text()='Weather']"
@@ -31,5 +31,8 @@ class Locators:
     ERROR_CITY_CHECK = ".//li[@class='info']"
     LINK_LOGOUT = ".//span/a[@href='/logout/']"
     CHECK_LOGIN = ".//h3[text()='LOGIN']"
+    INPUT_DATETIME = ".//input[@name='make_up']"
+    BUTTON_CHECK = ".//a[@href='/datecomplete']/button[@type='button']"
+
 
     

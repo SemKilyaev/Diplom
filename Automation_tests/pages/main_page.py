@@ -36,6 +36,23 @@ class MainPage(BasePage):
     ERROR_CITY_CHECK = (By.XPATH, Locators.ERROR_CITY_CHECK)
     LINK_LOGOUT = (By.XPATH, Locators.LINK_LOGOUT)
     CHECK_LOGIN = (By.XPATH, Locators.CHECK_LOGIN)
+    INPUT_DATETIME = (By.XPATH, Locators.INPUT_DATETIME)
+    BUTTON_CHECK = (By.XPATH, Locators.BUTTON_CHECK)
+
+
+    def input_datetime(self, date):
+        input_datetime = self.driver.find_element(*self.INPUT_DATETIME)
+        assert self.is_element_present(*self.INPUT_DATETIME), "Datetime input is not presented"
+        input_datetime.send_keys(date)
+        allure.attach(self.driver.get_screenshot_as_png(),
+                      name="Screenshot", attachment_type=AttachmentType.PNG)
+
+    def click_check_datetime(self):
+        button_check = self.driver.find_element(*self.BUTTON_CHECK)
+        assert self.is_element_present(*self.BUTTON_SIGN_UP), "Button check is not presented"
+        button_check.click()
+        allure.attach(self.driver.get_screenshot_as_png(),
+                      name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def go_to_register_page(self):
         login_link = self.driver.find_element(*self.BUTTON_SIGN_UP)
@@ -265,5 +282,11 @@ class MainPage(BasePage):
                       name="Screenshot", attachment_type=AttachmentType.PNG)
 
 
-    
+    def click_button_check(self):
+        button_check = self.driver.find_element(*self.BUTTON_CHECK)
+        assert self.is_element_present(*self.BUTTON_CHECK), "Button check is not presented"
+        button_check.click()
+        allure.attach(self.driver.get_screenshot_as_png(),
+                      name="Screenshot", attachment_type=AttachmentType.PNG)
+
 

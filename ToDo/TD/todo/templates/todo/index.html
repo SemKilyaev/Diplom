@@ -39,7 +39,7 @@
 						</div>
 						<div class="btn-group">
 							<a href="{% url 'datecomplete' %}"><button type="button" class="btn btn-danger">
-								<i class="glyphicon glyphicon-trash"></i> CHECK
+								<i class="glyphicon"></i> CHECK
 							</button></a>
 						</div>
 					</div>
@@ -60,7 +60,7 @@
 						<li class="list-group-item todo-completed todo-check">{{ todo.text }} <p class="date-created" style="margin-left: 20px;">Date created - {{ todo.date_created|date:"d F Y" }} </p> 
 							<p class="date-created" style="margin-left: 20px;">Date completed - {{ todo.make_up|date:"d F Y" }} </p></li>
 						{% else %}
-						<li class="list-group-item todo-completed">{{ todo.text }} <p class="date-created" style="margin-left: 20px;">Date created - {{ todo.date_created|date:"d F Y" }} </p> 
+						<li class="list-group-item todo-completed ">{{ todo.text }} <p class="date-created" style="margin-left: 20px;">Date created - {{ todo.date_created|date:"d F Y" }} </p> 
 							<p class="date-created" style="margin-left: 20px;">Date completed - {{ todo.make_up|date:"d F Y" }} </p></li>
 						{% endif %}
 					{% else %}
@@ -86,9 +86,5 @@
 	</footer>
 </div>
 
-<!-- jQuery -->
-<script src="./bs/js/jquery.min.js"></script>
-<!-- Bootstrap JavaScript -->
-<script src="./bs/js/bootstrap.min.js"></script>
-
 {% endblock content%}
+

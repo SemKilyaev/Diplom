@@ -55,6 +55,8 @@ class Test_TODO_list:
     def test_add_tasks(self):
         with allure.step("Login"):
             self.main_page.load_cookies(self.links.login, "todolist")
+        with allure.step("Enter datetime"):
+            self.main_page.input_datetime(self.data.DATETIME)
         with allure.step("Enter task"):
             self.main_page.input_task(self.data.TASK1)
         with allure.step("Click button add"):
@@ -68,6 +70,8 @@ class Test_TODO_list:
     def test_delete_tasks(self):
         with allure.step("Login"):
             self.main_page.load_cookies(self.links.login, "todolist")
+        with allure.step("Enter datetime"):
+            self.main_page.input_datetime(self.data.DATETIME_FALSE)
         with allure.step("Enter task"):
             self.main_page.input_task(self.data.TASK_FOR_DELETE)
         with allure.step("Click button add"):
@@ -87,12 +91,16 @@ class Test_TODO_list:
     def test_delete_all_tasks(self):
         with allure.step("Login"):
             self.main_page.load_cookies(self.links.login, "todolist")
+        with allure.step("Enter datetime"):
+            self.main_page.input_datetime(self.data.DATETIME_FALSE)
         with allure.step("Enter task1"):
             self.main_page.input_task(self.data.TASK_FOR_DELETE)
         with allure.step("Click button add"):
             self.main_page.click_button_add()
         with allure.step("Check add"):
             self.main_page.check_task_before_delete()
+        with allure.step("Enter datetime"):
+            self.main_page.input_datetime(self.data.DATETIME)
         with allure.step("Enter task2"):
             self.main_page.input_task(self.data.TASK1)
         with allure.step("Click button add"):
@@ -118,6 +126,7 @@ class Test_TODO_list:
             self.main_page.click_button_confirm()
         with allure.step("Check city"):
             self.main_page.check_temperature()
+            
             self.main_page.check_city()
         with allure.step("Delete city"):
             self.main_page.click_button_delete_city()
@@ -152,6 +161,21 @@ class Test_TODO_list:
             self.main_page.click_button_home()
         with allure.step("Check Home page"):
             self.main_page.check_link_weather()
+
+    @allure.testcase('TODO list button check')
+    @pytest.mark.smoke
+    @pytest.mark.check
+    def test_add_tasks(self):
+        with allure.step("Login"):
+            self.main_page.load_cookies(self.links.login, "todolist")
+        with allure.step("Enter datetime"):
+            self.main_page.input_datetime(self.data.DATETIME_FALSE)
+        with allure.step("Enter task"):
+            self.main_page.input_task(self.data.TASK1)
+        with allure.step("Click button add"):
+            self.main_page.click_button_add()
+        with allure.step("Click button check"):
+            self.main_page.click_button_check()
 
     @allure.testcase('TODO list logout')
     @pytest.mark.smoke
